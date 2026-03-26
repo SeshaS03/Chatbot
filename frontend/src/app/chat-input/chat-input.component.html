@@ -1,31 +1,61 @@
 <div class="chat-container">
-
+  <ng-container *ngIf="agentsPanelOpen">
+    <div class="agents-panel">
+      <div class="agents-title">AVAILABLE AI AGENTS</div>
+      <div class="agents-list">
+        <div class="agent-row">
+          <span class="agent-num">1️⃣</span>
+          <div class="agent-info">
+            <div class="agent-name">Roboship</div>
+            <div class="agent-desc">Supply chain optimization</div>
+          </div>
+        </div>
+        <div class="agent-row">
+          <span class="agent-num">2️⃣</span>
+          <div class="agent-info">
+            <div class="agent-name">Ciena</div>
+            <div class="agent-desc">Network hardware logistics</div>
+          </div>
+        </div>
+        <div class="agent-row">
+          <span class="agent-num">3️⃣</span>
+          <div class="agent-info">
+            <div class="agent-name">HR Policies</div>
+            <div class="agent-desc">Employee handbook & regulations</div>
+          </div>
+        </div>
+        <div class="agent-row">
+          <span class="agent-num">4️⃣</span>
+          <div class="agent-info">
+            <div class="agent-name">Logistics AI</div>
+            <div class="agent-desc">End-to-end routing intelligence</div>
+          </div>
+        </div>
+        <div class="agent-row selected">
+          <span class="agent-num red">5️⃣</span>
+          <div class="agent-info">
+            <div class="agent-name">General Assistant</div>
+            <div class="agent-desc">Broad technical intelligence</div>
+          </div>
+          <span class="agent-check">✔️</span>
+        </div>
+      </div>
+    </div>
+  </ng-container>
   <div class="chat-card">
-    
     <!-- TOP OPTIONS -->
     <div class="chat-top">
-      <span>Agents ▾</span>
-      <span>FAQ ▾</span>
+      <span (click)="toggleAgentsPanel()" style="cursor:pointer;user-select:none;">Agents {{ agentsPanelOpen ? '▲' : '▼' }}</span>
+      <span>FAQ ▼</span>
     </div>
-
     <!-- INPUT ROW -->
     <div class="chat-input-row">
       <span class="plus">+</span>
-
-      <input
-        type="text"
-        placeholder="Ask Sanmina AI..."
-      />
-
-      <button class="send">
-        ↑
-      </button>
+      <input type="text" placeholder="Ask Sanmina AI..." />
+      <button class="send">↑</button>
     </div>
-
   </div>
-
   <p class="chat-note">
     Sanmina AI can make mistakes. Check important info.
   </p>
-
 </div>
