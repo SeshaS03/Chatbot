@@ -14,8 +14,14 @@
 }
 
 .title {
-  font-weight: 600;
+  font-weight: 900;
+  font-size: 22px;
+  letter-spacing: 1.2px;
+  color: #d90404;
   flex: 1;
+  text-shadow: 0 2px 8px rgba(217,4,4,0.08);
+  font-family: 'Inter', Arial, sans-serif;
+  text-transform: uppercase;
 }
 
 .user {

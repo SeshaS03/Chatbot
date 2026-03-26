@@ -11,7 +11,7 @@
     <button class="new-chat collapsed" *ngIf="collapsed">
         <span class="plus-icon">+</span>
     </button>
-    <div *ngIf="!collapsed">
+    <div class="sidebar-content" *ngIf="!collapsed">
         <div class="section">
             <p class="title">RECENT THREADS</p>
             <div class="item" *ngFor="let thread of filteredThreads">
@@ -24,9 +24,9 @@
                 {{folder.icon}} {{folder.name}} <span>{{folder.count}}</span>
             </div>
         </div>
-        <div class="bottom">
-            <div>⚙️ Settings</div>
-            <div>❓ Help Center</div>
-        </div>
+    </div>
+    <div class="bottom" *ngIf="!collapsed">
+        <div><span class="bottom-icon">⚙️</span> <span class="bottom-label">Settings</span></div>
+        <div><span class="bottom-icon">❓</span> <span class="bottom-label">Help Center</span></div>
     </div>
 </div>
