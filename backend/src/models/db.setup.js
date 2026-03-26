@@ -11,7 +11,7 @@ export async function ensureDatabaseAndTables() {
     port: process.env.DB_PORT,
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
-    database: 'postgres', // always use the default postgres DB
+    database: process.env.DB_NAME, // always use the default postgres DB
   });
   await client.connect();
   const schema = 'chatbot';
@@ -28,6 +28,13 @@ export async function ensureDatabaseAndTables() {
       sender VARCHAR(50),
       content TEXT,
       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    );
+    CREATE TABLE IF NOT EXISTS ${schema}.agent (
+      id SERIAL PRIMARY KEY,
+      name VARCHAR(255) NOT NULL,
+      description VARCHAR(255) NOT NULL,
+      icon VARCHAR(255),
+      "order" INTEGER NOT NULL
     );
   `);
   await client.end();

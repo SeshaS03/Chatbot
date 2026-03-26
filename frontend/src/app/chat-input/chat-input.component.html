@@ -3,42 +3,21 @@
     <div class="agents-panel">
       <div class="agents-title">AVAILABLE AI AGENTS</div>
       <div class="agents-list">
-        <div class="agent-row">
-          <span class="agent-num">1️⃣</span>
-          <div class="agent-info">
-            <div class="agent-name">Roboship</div>
-            <div class="agent-desc">Supply chain optimization</div>
+        <ng-container *ngIf="!loading && agents.length > 0; else loadingOrEmpty">
+          <div class="agent-row" *ngFor="let agent of agents; let i = index">
+            <span class="agent-num" [ngClass]="{red: i === agents.length - 1}">{{ i + 1 }}</span>
+            <div class="agent-info">
+              <div class="agent-name">{{ agent.name }}</div>
+              <div class="agent-desc">{{ agent.description }}</div>
+            </div>
+            <span *ngIf="i === agents.length - 1" class="agent-check">✔️</span>
           </div>
-        </div>
-        <div class="agent-row">
-          <span class="agent-num">2️⃣</span>
-          <div class="agent-info">
-            <div class="agent-name">Ciena</div>
-            <div class="agent-desc">Network hardware logistics</div>
-          </div>
-        </div>
-        <div class="agent-row">
-          <span class="agent-num">3️⃣</span>
-          <div class="agent-info">
-            <div class="agent-name">HR Policies</div>
-            <div class="agent-desc">Employee handbook & regulations</div>
-          </div>
-        </div>
-        <div class="agent-row">
-          <span class="agent-num">4️⃣</span>
-          <div class="agent-info">
-            <div class="agent-name">Logistics AI</div>
-            <div class="agent-desc">End-to-end routing intelligence</div>
-          </div>
-        </div>
-        <div class="agent-row selected">
-          <span class="agent-num red">5️⃣</span>
-          <div class="agent-info">
-            <div class="agent-name">General Assistant</div>
-            <div class="agent-desc">Broad technical intelligence</div>
-          </div>
-          <span class="agent-check">✔️</span>
-        </div>
+        </ng-container>
+        <ng-template #loadingOrEmpty>
+          <div *ngIf="loading" class="agent-row">Loading agents...</div>
+          <div *ngIf="!loading && error" class="agent-row">{{ error }}</div>
+          <div *ngIf="!loading && !error && agents.length === 0" class="agent-row">No agents found.</div>
+        </ng-template>
       </div>
     </div>
   </ng-container>

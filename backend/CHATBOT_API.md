@@ -122,4 +122,13 @@
 - **Response:**
 ```
 { "message": "Message deleted" }
+
+
+### insert query for agent 
+INSERT INTO chatbot.agent (name, description, icon, "order") VALUES
+('Roboship', 'Supply chain optimization', NULL, 1),
+('Ciena', 'Network hardware logistics', NULL, 2),
+('HR Policies', 'Employee handbook & regulations', NULL, 3),
+('Logistics AI', 'End-to-end routing intelligence', NULL, 4),
+('General Assistant', 'Broad technical intelligence', NULL, 5);
 ```
