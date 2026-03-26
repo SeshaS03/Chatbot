@@ -1,29 +1,32 @@
 <div class="sidebar" [class.collapsed]="collapsed">
     <div class="top-icons">
         <span class="hamburger" (click)="toggleSidebar.emit()">☰</span>
-        <span>🔍</span>
+        <span class="search-icon">
+            <input *ngIf="!collapsed" type="text" placeholder="Search..." [(ngModel)]="searchTerm" (input)="onSearch($event)" />
+        </span>
     </div>
-
-    <ng-container *ngIf="!collapsed">
-        <button class="new-chat">+ New Chat</button>
-
+    <button class="new-chat" *ngIf="!collapsed">
+        <span class="plus-icon">+</span> New Chat
+    </button>
+    <button class="new-chat collapsed" *ngIf="collapsed">
+        <span class="plus-icon">+</span>
+    </button>
+    <div *ngIf="!collapsed">
         <div class="section">
             <p class="title">RECENT THREADS</p>
-            <div class="item">💬 Q4 Logistics Analysis</div>
-            <div class="item">💬 Supply Chain Optimization</div>
-            <div class="item">💬 Supply Chain Optimization</div>
+            <div class="item" *ngFor="let thread of filteredThreads">
+                {{thread.icon}} {{thread.text}}
+            </div>
         </div>
-
         <div class="section">
             <p class="title">PROJECT FOLDERS</p>
-            <div class="item folder">📁 Roboship <span>12</span></div>
-            <div class="item folder">📁 Ciena <span>8</span></div>
-            <div class="item folder">📁 HR Policies <span>4</span></div>
+            <div class="item folder" *ngFor="let folder of folders">
+                {{folder.icon}} {{folder.name}} <span>{{folder.count}}</span>
+            </div>
         </div>
-
         <div class="bottom">
             <div>⚙️ Settings</div>
             <div>❓ Help Center</div>
         </div>
-    </ng-container>
+    </div>
 </div>
