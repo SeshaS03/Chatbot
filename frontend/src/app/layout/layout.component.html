@@ -1,0 +1,7 @@
+<div class="layout">
+  <app-sidebar [collapsed]="sidebarCollapsed" (toggleSidebar)="sidebarCollapsed = !sidebarCollapsed"></app-sidebar>
+  <div class="main">
+    <app-header (toggleSidebar)="sidebarCollapsed = !sidebarCollapsed"></app-header>
+    <app-main-content></app-main-content>
+  </div>
+</div>

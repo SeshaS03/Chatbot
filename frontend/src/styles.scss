@@ -1,1 +1,53 @@
-/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	font-family: 'Inter', Arial, sans-serif;
+	background: linear-gradient(135deg, #f5f6f8 0%, #f9fafb 100%);
+	color: #111827;
+}
+
+body {
+	min-height: 100vh;
+	background: linear-gradient(135deg, #f5f6f8 0%, #f9fafb 100%);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+	width: 8px;
+	background: #f5f6f8;
+}
+::-webkit-scrollbar-thumb {
+	background: #e5e7eb;
+	border-radius: 8px;
+}
+
+a {
+	color: #d90404;
+	text-decoration: none;
+	transition: color 0.2s;
+}
+a:hover {
+	color: #b00303;
+}
+
+button, .new-chat-btn, .send-btn {
+	transition: background 0.2s, box-shadow 0.2s;
+	cursor: pointer;
+}
+.new-chat-btn:hover, .send-btn:hover {
+	background: #b00303;
+	box-shadow: 0 2px 8px rgba(217,4,4,0.08);
+}
+
+input, .chat-input-field {
+	font-family: inherit;
+}
+
+/* Add a subtle shadow to main containers */
+.main-area, .chat-input-container, .sidebar {
+	box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}

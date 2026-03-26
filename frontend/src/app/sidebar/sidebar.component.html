@@ -1,0 +1,29 @@
+<div class="sidebar" [class.collapsed]="collapsed">
+    <div class="top-icons">
+        <span class="hamburger" (click)="toggleSidebar.emit()">☰</span>
+        <span>🔍</span>
+    </div>
+
+    <ng-container *ngIf="!collapsed">
+        <button class="new-chat">+ New Chat</button>
+
+        <div class="section">
+            <p class="title">RECENT THREADS</p>
+            <div class="item">💬 Q4 Logistics Analysis</div>
+            <div class="item">💬 Supply Chain Optimization</div>
+            <div class="item">💬 Supply Chain Optimization</div>
+        </div>
+
+        <div class="section">
+            <p class="title">PROJECT FOLDERS</p>
+            <div class="item folder">📁 Roboship <span>12</span></div>
+            <div class="item folder">📁 Ciena <span>8</span></div>
+            <div class="item folder">📁 HR Policies <span>4</span></div>
+        </div>
+
+        <div class="bottom">
+            <div>⚙️ Settings</div>
+            <div>❓ Help Center</div>
+        </div>
+    </ng-container>
+</div>

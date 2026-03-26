@@ -1,3 +1,22 @@
+TO CLONE AND START USING THE PROJECT IN SOMEONES LOCAL
+
+1.TO GET THE PROJECT FROM GIT 
+git clone "path"
+
+2.IF YOU ALREADY HAVE THE CODE BASE (check you have angular version 19 and node version 20 in your local first then run the below commands)
+npm install
+npm start
+
+3.
+
+
+
+#############################
+
+
+
+
+--------------------------------
 1.To create a complete new application 
 
 give the beloe command 
